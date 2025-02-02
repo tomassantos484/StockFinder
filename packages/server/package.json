@@ -1,6 +1,6 @@
 {
   "name": "@devweek/server",
- "version": "1.0.0",
+  "version": "1.0.0",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
@@ -12,7 +12,10 @@
     "fastify": "^5.2.1"
   },
   "devDependencies": {
+    "@playwright/test": "^1.50.1",
+    "@types/node": "^22.13.0",
     "nodemon": "^3.1.9",
-    "typescript": "^5.7.3" 
+    "playwright": "^1.50.1",
+    "typescript": "^5.7.3"
   }
 }
