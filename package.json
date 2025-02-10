@@ -7,9 +7,15 @@
   ],
   "scripts": {
     "dev": "npm run dev --workspaces",
-
     "build": "npm run build --workspaces",
-
     "start": "npm run start --workspaces"
+  },
+  "module": "index.ts",
+  "type": "module",
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
   }
 }
