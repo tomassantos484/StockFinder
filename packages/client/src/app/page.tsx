@@ -1,107 +1,199 @@
 import Image from "next/image";
-import { Button } from "@/components/Button";
-import { NavLink } from "@/components/NavLink";
+import { AuthButton } from "@/components/AuthButton";
+import Navigation from "@/components/Navigation";
+import YouTubeVideo from '@/components/YouTubeVideo';
+import { FadeIn } from "@/components/FadeIn";
 
 export default function LandingPage() {
   return (
-    <div className="min-h-screen bg-[#F9FAFB]">
-      {/* Navigation - sticky header */}
-      <nav className="sticky top-0 z-50 bg-[#F9FAFB]/80 backdrop-blur-sm border-b border-gray-100">
-        <div className="container mx-auto px-6 py-4 flex justify-between items-center">
-          <div className="text-[#34D399] text-xl font-montserrat font-bold">
-            StockFinder
-          </div>
-          <div className="flex items-center gap-8 font-montserrat">
-            <NavLink href="#why-stockfinder">Why StockFinder?</NavLink>
-            <NavLink href="#features">Key Features</NavLink>
-            <NavLink href="#demo">Demo</NavLink>
-            <Button href="#try-now" className="px-4 py-2">
-              Try StockFinder Now
-            </Button>
-          </div>
-        </div>
-      </nav>
-
+    <>
+      <Navigation />
       {/* Hero Section */}
       <section id="try-now" className="container mx-auto px-6 py-24">
         <div className="flex items-center justify-between">
           <div className="max-w-xl">
             <h1 className="text-6xl font-montserrat font-bold text-[#111827] mb-6">
-              Find What You Need, When You Need It – Instantly.
+              Find What You Need, When You Need It - Instantly.
             </h1>
             <p className="text-xl text-[#1F2937] mb-8 font-montserrat">
               StockFinder helps you locate real-time product availability from local stores, saving you time and frustration.
             </p>
-            <Button className="px-8 py-4 text-lg">
+            <AuthButton className="px-8 py-4 text-lg">
               Try StockFinder Now
-            </Button>
+            </AuthButton>
           </div>
           
-          <div className="relative w-[600px] transform transition-transform hover:scale-105 duration-500">
-            <Image 
-              src="/laptop_real_trans.png"
-              alt="StockFinder App Preview"
-              width={600}
-              height={371}
-              priority
-              className="w-full h-auto"
-            />
-          </div>
+          <FadeIn delay={500} className="relative w-[600px]">
+            <div className="transform transition-transform hover:scale-105 duration-500">
+              <Image 
+                src="/laptop_real_trans.png"
+                alt="StockFinder App Preview"
+                width={600}
+                height={371}
+                priority
+                className="w-full h-auto"
+              />
+            </div>
+          </FadeIn>
         </div>
       </section>
 
       {/* Problem & Solution (Why StockFinder?) Section */}
       <section id="why-stockfinder" className="container mx-auto px-6 py-20 scroll-mt-20">
-        <h2 className="text-4xl font-montserrat font-bold text-[#111827] mb-8">
+        <h2 className="text-4xl font-montserrat font-bold text-[#111827] mb-12">
           Why StockFinder?
         </h2>
-        <div className="text-[#1F2937]">
-          Coming soon..
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <FadeIn delay={200}>
+            {/* Problem Card */}
+            <div className="bg-white rounded-lg p-8 shadow-sm hover:shadow-md transition-shadow">
+              <h3 className="text-2xl font-montserrat font-bold text-[#111827] mb-4">
+                The Problem
+              </h3>
+              <p className="text-[#1F2937] text-lg">
+                Ever wasted time driving from store to store looking for a product, only to find it&apos;s out of stock everywhere? You&apos;re not alone. Traditional stock checking methods are time-consuming, unreliable, and often lead to frustration.
+              </p>
+            </div>
+          </FadeIn>
+
+          <FadeIn delay={400}>
+            {/* Solution Card */}
+            <div className="bg-white rounded-lg p-8 shadow-sm hover:shadow-md transition-shadow">
+              <h3 className="text-2xl font-montserrat font-bold text-[#111827] mb-4">
+                The Solution
+              </h3>
+              <p className="text-[#1F2937] text-lg">
+                StockFinder provides real-time inventory tracking across multiple stores, sending instant notifications when items are back in stock. No more wasted trips or endless phone calls – just efficient, accurate stock information at your fingertips.
+              </p>
+            </div>
+          </FadeIn>
+
+          <FadeIn delay={600} className="md:col-span-2">
+            {/* Benefits List */}
+            <div className="bg-[#F0FDF4] rounded-lg p-8 mt-8">
+              <h3 className="text-2xl font-montserrat font-bold text-[#111827] mb-6">
+                Benefits
+              </h3>
+              <ul className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {[
+                  'Save time by checking stock availability before leaving home',
+                  'Get instant notifications when items are back in stock',
+                  'Compare prices across multiple stores in real-time',
+                  'Track price history and predict the best time to buy',
+                  'Share stock information with friends and family'
+                ].map((benefit, index) => (
+                  <li key={index} className="flex items-center gap-3 text-[#1F2937]">
+                    <svg className="w-5 h-5 text-[#34D399]" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/>
+                    </svg>
+                    {benefit}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </FadeIn>
         </div>
       </section>
 
       {/* Key Features Section */}
-      <section id="features" className="container mx-auto px-6 py-20 scroll-mt-20">
-        <h2 className="text-4xl font-montserrat font-bold text-[#111827] mb-8">
+      <section id="features" className="container mx-auto px-6 py-20 pb-32 scroll-mt-20">
+        <h2 className="text-4xl font-montserrat font-bold text-[#111827] mb-12">
           Key Features
         </h2>
-        <div className="text-[#1F2937]">
-          Coming soon..
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <FadeIn delay={200}>
+            {/* Real-Time Tracking */}
+            <div className="bg-white rounded-lg p-8 shadow-sm hover:shadow-md transition-shadow">
+              <div className="w-12 h-12 bg-[#F0FDF4] rounded-lg flex items-center justify-center mb-6">
+                <svg className="w-6 h-6 text-[#34D399]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                </svg>
+              </div>
+              <h3 className="text-xl font-montserrat font-bold text-[#111827] mb-4">
+                Real-Time Tracking
+              </h3>
+              <p className="text-[#1F2937]">
+                Get live updates on product availability across multiple stores, ensuring you never miss out on restocks.
+              </p>
+            </div>
+          </FadeIn>
+
+          <FadeIn delay={400}>
+            {/* Smart Notifications */}
+            <div className="bg-white rounded-lg p-8 shadow-sm hover:shadow-md transition-shadow">
+              <div className="w-12 h-12 bg-[#F0FDF4] rounded-lg flex items-center justify-center mb-6">
+                <svg className="w-6 h-6 text-[#34D399]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
+                </svg>
+              </div>
+              <h3 className="text-xl font-montserrat font-bold text-[#111827] mb-4">
+                Smart Notifications
+              </h3>
+              <p className="text-[#1F2937]">
+                Set up custom alerts for specific products and get notified instantly when they&apos;re back in stock.
+              </p>
+            </div>
+          </FadeIn>
+
+          <FadeIn delay={600}>
+            {/* Price Comparison */}
+            <div className="bg-white rounded-lg p-8 shadow-sm hover:shadow-md transition-shadow">
+              <div className="w-12 h-12 bg-[#F0FDF4] rounded-lg flex items-center justify-center mb-6">
+                <svg className="w-6 h-6 text-[#34D399]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z" />
+                </svg>
+              </div>
+              <h3 className="text-xl font-montserrat font-bold text-[#111827] mb-4">
+                Price Comparison
+              </h3>
+              <p className="text-[#1F2937]">
+                Compare prices across different retailers to ensure you&apos;re getting the best deal available.
+              </p>
+            </div>
+          </FadeIn>
         </div>
       </section>
 
       {/* Demo Section */}
-      <section id="demo" className="container mx-auto px-6 py-20 scroll-mt-20 text-center">
+      <section id="demo" className="container mx-auto px-6 py-20 scroll-mt-20">
         <h2 className="text-4xl font-montserrat font-bold text-[#111827] mb-8">
-          See StockFinder In Action:
+          See StockFinder In Action
         </h2>
-        <div className="max-w-4xl mx-auto bg-black aspect-video rounded-lg">
-          {/* Video placeholder */}
-          <div className="w-full h-full flex items-center justify-center">
-            <div className="text-white">Video Demo Coming Soon</div>
-          </div>
+        <div className="max-w-4xl mx-auto bg-black aspect-video rounded-lg overflow-hidden">
+          <YouTubeVideo />
         </div>
       </section>
 
       {/* Final CTA Section */}
-      <section className="container mx-auto px-6 py-20 text-center">
-        <h2 className="text-4xl font-montserrat font-bold text-[#111827] mb-4">
-          Stop Searching. Start Finding with StockFinder.
-        </h2>
-        <p className="text-[#1F2937] mb-8">
-          Your go-to app for finding what&apos;s in stock—when you need it most.
-        </p>
-        <Button className="px-8 py-3">
-          Try StockFinder Now
-        </Button>
-      </section>
+      <FadeIn>
+        <section className="container mx-auto px-6 py-20 text-center">
+          <h2 className="text-4xl font-montserrat font-bold text-[#111827] mb-4">
+            Stop Searching. Start Finding with StockFinder.
+          </h2>
+          <p className="text-[#1F2937] mb-8">
+            Your go-to app for finding what&apos;s in stock—when you need it most.
+          </p>
+          <AuthButton className="px-8 py-3">
+            Try StockFinder Now
+          </AuthButton>
+        </section>
+      </FadeIn>
 
-      {/* Footer - Updated with GitHub icon */}
+      {/* Footer */}
       <footer className="bg-[#065F46] text-[#F9FAFB] py-8">
-        <div className="container mx-auto px-6 text-center">
+        <div className="container mx-auto px-6 text-center flex flex-col gap-4">
           <div className="flex items-center justify-center gap-4">
             <p className="font-montserrat">
-              Built at DeveloperWeek 2025 Hackathon
+              Built at{" "}
+              <a 
+                href="https://www.developerweek.com" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-[#34D399] hover:text-[#F9FAFB] transition-colors underline"
+              >
+                DeveloperWeek 2025
+              </a>
+              {" "}Hackathon
             </p>
             <a 
               href="https://github.com/tomassantos484/developer-week2025-hack" 
@@ -120,8 +212,11 @@ export default function LandingPage() {
               </svg>
             </a>
           </div>
+          <div className="text-sm text-[#F9FAFB]/80 font-montserrat">
+            © {new Date().getFullYear()} StockFinder. All rights reserved.
+          </div>
         </div>
       </footer>
-    </div>
+    </>
   );
 }
