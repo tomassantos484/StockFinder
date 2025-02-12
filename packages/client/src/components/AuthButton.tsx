@@ -9,7 +9,7 @@ export function AuthButton({ children, className }: { children: React.ReactNode;
   return (
     <Button 
       className={className}
-      onClick={() => router.push('/sign-in')}
+      onClick={() => router.push('/sign-in?redirect_url=/dashboard')}
     >
       {children}
     </Button>

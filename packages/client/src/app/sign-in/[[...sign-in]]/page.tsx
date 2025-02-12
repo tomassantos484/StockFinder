@@ -7,6 +7,7 @@ export default function SignInPage() {
         StockFinder
       </div>
       <SignIn
+        afterSignInUrl="/dashboard"
         appearance={{
           elements: {
             rootBox: "mx-auto",
