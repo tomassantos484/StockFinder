@@ -1,15 +1,12 @@
-import { FastifyInstance, FastifyRequest, FastifyReply } from 'fastify';
-import { ScraperRequest, ScraperRequestType, ScraperResponse, ScraperResponseType } from '../schemas/Scraper.js';
+import { ScraperRequest, ScraperResponse } from '../schemas/Scraper.js';
 import checkItemStock from '../scraper.js';
-
-async function scraperRoutes(fastify: FastifyInstance, options: any) {
+async function scraperRoutes(fastify, options) {
     // Health Check
     fastify.get('/', async (request, reply) => {
         return { message: 'Item Checker API 0.0.1' };
     });
-
     // POST Route for Checking Stock
-    fastify.post<{ Body: ScraperRequestType; Reply: ScraperResponseType }>('/checkStock', {
+    fastify.post('/checkStock', {
         schema: {
             body: ScraperRequest,
             response: {
@@ -17,16 +14,13 @@ async function scraperRoutes(fastify: FastifyInstance, options: any) {
                 400: ScraperResponse, // Handles bad requests
             },
         },
-    }, async (
-        request: FastifyRequest<{ Body: ScraperRequestType }>,
-        reply: FastifyReply
-    ) => {
+    }, async (request, reply) => {
         const { itemName, zipCode, website } = request.body;
-
         try {
             const result = await checkItemStock(itemName, zipCode);
             return reply.send(result); // 200 OK
-        } catch (e: any) {
+        }
+        catch (e) {
             return reply.status(400).send({
                 success: false,
                 error: e.message || 'Failed to check item stock',
@@ -34,5 +28,4 @@ async function scraperRoutes(fastify: FastifyInstance, options: any) {
         }
     });
 }
-
 export default scraperRoutes;

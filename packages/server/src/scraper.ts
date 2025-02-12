@@ -1,5 +1,5 @@
 import puppeteer, { Page } from 'puppeteer';
-import { ScraperRequest, ScraperResponse, ScraperResponseType } from './schemas/scraper';
+import { ScraperRequest, ScraperResponse, ScraperResponseType } from './schemas/Scraper.js';
 
 interface StockResult {
   success: boolean;
