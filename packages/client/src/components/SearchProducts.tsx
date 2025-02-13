@@ -61,11 +61,11 @@ export default function SearchProducts() {
 
   return (
     <div>
-      <div className="bg-white rounded-lg shadow p-6 mb-8">
+      <div className="bg-white rounded-lg shadow p-4 md:p-6 mb-8">
         <h2 className="text-xl font-montserrat font-semibold text-[#111827] mb-4">
           Search for Products
         </h2>
-        <form onSubmit={handleSearch} className="flex gap-4">
+        <form onSubmit={handleSearch} className="flex flex-col md:flex-row gap-4">
           <input
             type="text"
             placeholder="Enter product name..."
@@ -79,14 +79,14 @@ export default function SearchProducts() {
             placeholder="Enter ZIP code"
             value={zipCode}
             onChange={(e) => setZipCode(e.target.value)}
-            className="w-32 p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#34D399] text-gray-900 placeholder:text-gray-500"
+            className="w-full md:w-32 p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#34D399] text-gray-900 placeholder:text-gray-500"
             required
             pattern="[0-9]{5}"
           />
           <button 
             type="submit"
             disabled={isLoading}
-            className="bg-[#34D399] text-white px-6 py-2 rounded-md hover:bg-[#2EB37A] transition-colors disabled:opacity-50"
+            className="w-full md:w-auto bg-[#34D399] text-white px-6 py-2 rounded-md hover:bg-[#2EB37A] transition-colors disabled:opacity-50"
           >
             {isLoading ? 'Searching...' : 'Search'}
           </button>

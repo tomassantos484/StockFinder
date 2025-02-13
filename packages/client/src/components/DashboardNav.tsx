@@ -8,7 +8,7 @@ export default function DashboardNav() {
   return (
     <nav className="bg-white shadow">
       <div className="container mx-auto px-6 py-4">
-        <div className="flex items-center justify-between">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-4 md:gap-0">
           <div className="text-[#34D399] text-xl font-montserrat font-bold">
             <Link href="/dashboard" onClick={(e) => {
               e.preventDefault();

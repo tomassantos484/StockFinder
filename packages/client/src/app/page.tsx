@@ -9,24 +9,24 @@ export default function LandingPage() {
     <>
       <Navigation />
       {/* Hero Section */}
-      <section id="try-now" className="container mx-auto px-6 py-24">
-        <div className="flex items-center justify-between">
+      <section id="try-now" className="container mx-auto px-6 py-12 md:py-24">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-8 md:gap-0">
           <div className="max-w-xl">
-            <h1 className="text-6xl font-montserrat font-bold text-[#111827] mb-6">
+            <h1 className="text-4xl md:text-6xl font-montserrat font-bold text-[#111827] mb-6">
               Find What You Need, When You Need It - Instantly.
             </h1>
-            <p className="text-xl text-[#1F2937] mb-8 font-montserrat">
+            <p className="text-lg md:text-xl text-[#1F2937] mb-8 font-montserrat">
               StockFinder helps you locate real-time product availability from local stores, saving you time and frustration.
             </p>
-            <AuthButton className="px-8 py-4 text-lg">
+            <AuthButton className="w-full md:w-auto px-8 py-4 text-lg">
               Try StockFinder Now
             </AuthButton>
           </div>
           
-          <FadeIn delay={500} className="relative w-[600px]">
+          <FadeIn delay={500} className="relative w-full md:w-[600px]">
             <div className="transform transition-transform hover:scale-105 duration-500">
               <Image 
-                src="/laptop_real_trans.png"
+                src="/StockFinder_laptop_cropped.png"
                 alt="StockFinder App Preview"
                 width={600}
                 height={371}
@@ -38,7 +38,7 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* Problem & Solution (Why StockFinder?) Section */}
+      {/* Problem & Solution Section */}
       <section id="why-stockfinder" className="container mx-auto px-6 py-20 scroll-mt-20">
         <h2 className="text-4xl font-montserrat font-bold text-[#111827] mb-12">
           Why StockFinder?
@@ -51,7 +51,7 @@ export default function LandingPage() {
                 The Problem
               </h3>
               <p className="text-[#1F2937] text-lg">
-                Ever wasted time driving from store to store looking for a product, only to find it&apos;s out of stock everywhere? You&apos;re not alone. Traditional stock checking methods are time-consuming, unreliable, and often lead to frustration.
+                Checking store websites for product availability can be tedious and time-consuming. You often have to navigate through multiple pages and manually check each store's inventory.
               </p>
             </div>
           </FadeIn>
@@ -63,7 +63,7 @@ export default function LandingPage() {
                 The Solution
               </h3>
               <p className="text-[#1F2937] text-lg">
-                StockFinder provides real-time inventory tracking across multiple stores, sending instant notifications when items are back in stock. No more wasted trips or endless phone calls – just efficient, accurate stock information at your fingertips.
+                StockFinder quickly searches store inventory systems and shows you exactly which nearby locations have your item in stock, complete with store locations and even the exact aisle numbers.
               </p>
             </div>
           </FadeIn>
@@ -76,11 +76,11 @@ export default function LandingPage() {
               </h3>
               <ul className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {[
-                  'Save time by checking stock availability before leaving home',
-                  'Get instant notifications when items are back in stock',
-                  'Compare prices across multiple stores in real-time',
-                  'Track price history and predict the best time to buy',
-                  'Share stock information with friends and family'
+                  'Instantly check store inventory by product name',
+                  'See exact in-store locations with aisle numbers',
+                  'Search any store by ZIP code',
+                  'Get detailed store information and addresses',
+                  'Save time by checking availability before leaving home'
                 ].map((benefit, index) => (
                   <li key={index} className="flex items-center gap-3 text-[#1F2937]">
                     <svg className="w-5 h-5 text-[#34D399]" fill="currentColor" viewBox="0 0 20 20">
@@ -102,52 +102,53 @@ export default function LandingPage() {
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <FadeIn delay={200}>
-            {/* Real-Time Tracking */}
+            {/* Real-Time Search */}
             <div className="bg-white rounded-lg p-8 shadow-sm hover:shadow-md transition-shadow h-full">
               <div className="w-12 h-12 bg-[#F0FDF4] rounded-lg flex items-center justify-center mb-6">
                 <svg className="w-6 h-6 text-[#34D399]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                 </svg>
               </div>
               <h3 className="text-xl font-montserrat font-bold text-[#111827] mb-4">
-                Real-Time Tracking
+                Quick Search
               </h3>
               <p className="text-[#1F2937]">
-                Get live updates on product availability across multiple stores, ensuring you never miss out on restocks.
+                Simply enter a product name and ZIP code to instantly check store inventory in your area.
               </p>
             </div>
           </FadeIn>
 
           <FadeIn delay={400}>
-            {/* Smart Notifications */}
+            {/* Location Details */}
             <div className="bg-white rounded-lg p-8 shadow-sm hover:shadow-md transition-shadow h-full">
               <div className="w-12 h-12 bg-[#F0FDF4] rounded-lg flex items-center justify-center mb-6">
                 <svg className="w-6 h-6 text-[#34D399]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                 </svg>
               </div>
               <h3 className="text-xl font-montserrat font-bold text-[#111827] mb-4">
-                Smart Notifications
+                Precise Locations
               </h3>
               <p className="text-[#1F2937]">
-                Set up custom alerts for specific products and get notified instantly when they&apos;re back in stock.
+                Get exact store addresses and in-store aisle locations for your products.
               </p>
             </div>
           </FadeIn>
 
           <FadeIn delay={600}>
-            {/* Price Comparison */}
+            {/* Store Availability */}
             <div className="bg-white rounded-lg p-8 shadow-sm hover:shadow-md transition-shadow h-full">
               <div className="w-12 h-12 bg-[#F0FDF4] rounded-lg flex items-center justify-center mb-6">
                 <svg className="w-6 h-6 text-[#34D399]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4" />
                 </svg>
               </div>
               <h3 className="text-xl font-montserrat font-bold text-[#111827] mb-4">
-                Price Comparison
+                Stock Status
               </h3>
               <p className="text-[#1F2937]">
-                Compare prices across different retailers to ensure you&apos;re getting the best deal available.
+                See real-time inventory status at stores near you, with clear in-stock indicators.
               </p>
             </div>
           </FadeIn>

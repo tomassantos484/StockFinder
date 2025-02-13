@@ -24,26 +24,28 @@ export default function Navigation() {
 
   return (
     <nav className="sticky top-0 z-50 bg-[#F9FAFB]/80 backdrop-blur-sm border-b border-gray-100">
-      <div className="container mx-auto px-6 py-4 flex justify-between items-center">
-        <div className="text-[#34D399] text-xl font-montserrat font-bold">
-          <Link href="/" onClick={handleLogoClick}>
-            <Image 
-              src="/StockFinder_logo_cropped.png"
-              alt="StockFinder"
-              width={400}
-              height={106}
-              priority
-              className="h-auto w-[100px]"
-            />
-          </Link>
-        </div>
-        <div className="flex items-center gap-8 font-montserrat">
-          <NavLink href="#why-stockfinder">Why StockFinder?</NavLink>
-          <NavLink href="#features">Key Features</NavLink>
-          <NavLink href="#demo">Demo</NavLink>
-          <AuthButton className="px-4 py-2">
-            Try StockFinder Now
-          </AuthButton>
+      <div className="container mx-auto px-6 py-4">
+        <div className="flex flex-col md:flex-row justify-between items-center gap-4 md:gap-0">
+          <div className="text-[#34D399] text-xl font-montserrat font-bold">
+            <Link href="/" onClick={handleLogoClick}>
+              <Image 
+                src="/StockFinder_logo_cropped.png"
+                alt="StockFinder"
+                width={400}
+                height={106}
+                priority
+                className="h-auto w-[100px]"
+              />
+            </Link>
+          </div>
+          <div className="flex flex-col md:flex-row items-center gap-4 md:gap-8 font-montserrat">
+            <NavLink href="#why-stockfinder">Why StockFinder?</NavLink>
+            <NavLink href="#features">Key Features</NavLink>
+            <NavLink href="#demo">Demo</NavLink>
+            <AuthButton className="w-full md:w-auto px-4 py-2">
+              Try StockFinder Now
+            </AuthButton>
+          </div>
         </div>
       </div>
     </nav>
