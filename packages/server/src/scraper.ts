@@ -70,8 +70,15 @@ async function checkItemStock(
     const encodedKeyword = encodeURIComponent(searchTerm);
 
     const itemSearchURL = `https://redsky.target.com/redsky_aggregations/v1/web/plp_search_v2?key=9f36aeafbe60771e321a7cc95a78140772ab3e96&channel=WEB&count=24&default_purchasability_filter=true&include_dmc_dmr=true&include_sponsored=true&include_review_summarization=false&keyword=${encodedKeyword}&new_search=true&offset=0&page=%2Fs%2F${encodedKeyword}&platform=desktop&pricing_store_id=2581&scheduled_delivery_store_id=2581&spellcheck=true&store_ids=2581%2C626%2C2615%2C2830%2C2584&useragent=Mozilla%2F5.0+%28Macintosh%3B+Intel+Mac+OS+X+10_15_7%29+AppleWebKit%2F537.36+%28KHTML%2C+like+Gecko%29+Chrome%2F132.0.0.0+Safari%2F537.36&visitor_id=0194FB5649F702019FB22185FEC45FF1&zip=95054`;
-    const response = await fetch(itemSearchURL);
+    const response = await fetch(itemSearchURL, {
+      headers: {
+        "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7)...",
+        "Accept": "application/json",
+      }
+    });
+    console.log(itemSearchURL)
     const data = (await response.json()) as TargetSearchResponse;
+    console.log("DATA:", JSON.stringify(data, null, 2));
     const firstTcin = data.data.search.products[0].tcin;
     const itemNameOnTarget = data.data.search.products[0].item.product_description.title
     console.log("NAME: " + itemNameOnTarget)
@@ -89,7 +96,12 @@ async function checkItemStock(
 
   const url = `https://redsky.target.com/redsky_aggregations/v1/web/product_fulfillment_v1?key=${key}&is_bot=false&tcin=${firstTcin}&store_id=${storeId}&zip=${zipCode}&state=${state}&latitude=${latitude}&longitude=${longitude}&scheduled_delivery_store_id=${storeId}&paid_membership=false&base_membership=false&card_membership=false&required_store_id=${storeId}&visitor_id=${visitor_id}&channel=${channel}&page=${encodeURIComponent(page)}`;
 
-  const res = await fetch(url);
+  const res = await fetch(url, {
+    headers: {
+      "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7)...",
+      "Accept": "application/json",
+    }
+  });
   if (!res.ok) {
     throw new Error(`HTTP error! status: ${res.status}`);
   }
