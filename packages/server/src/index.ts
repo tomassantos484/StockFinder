@@ -11,7 +11,7 @@ server.get('/ping', async (request, reply) => {
   return 'pong\n'
 })
 server.register(scraperRoutes)
-server.listen({ port: 3001, host: 'localhost' }, (err, address) => {
+server.listen({ port: 3002, host: 'localhost' }, (err, address) => {
   if (err) {
     console.error(err)
     process.exit(1)

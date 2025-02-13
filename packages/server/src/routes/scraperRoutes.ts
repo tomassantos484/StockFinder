@@ -1,5 +1,5 @@
 import { FastifyInstance, FastifyRequest, FastifyReply } from 'fastify';
-import { ScraperRequest, ScraperRequestType, ScraperResponse, ScraperResponseType } from '../schemas/scraper';
+import { ScraperRequest, ScraperRequestType, ScraperResponse, ScraperResponseType } from '../schemas/Scraper';
 import checkItemStock from '../scraper';
 
 async function scraperRoutes(fastify: FastifyInstance, options: any) {
@@ -34,5 +34,6 @@ async function scraperRoutes(fastify: FastifyInstance, options: any) {
         }
     });
 }
+
 
 export default scraperRoutes;
