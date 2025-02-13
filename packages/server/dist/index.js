@@ -1,6 +1,13 @@
 import fastify from 'fastify';
+import cors from '@fastify/cors';
 const server = fastify();
 import scraperRoutes from './routes/scraperRoutes.js';
+// Register CORS
+await server.register(cors, {
+    origin: ['http://localhost:3000'], // Allow requests from Next.js dev server
+    methods: ['GET', 'POST'],
+    credentials: true,
+});
 server.get('/ping', async (request, reply) => {
     return 'pong\n';
 });
