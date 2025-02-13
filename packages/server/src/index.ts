@@ -1,4 +1,5 @@
 import fastify from 'fastify';
+import cors from '@fastify/cors';
 import { formatStoreName } from '@devweek/shared/src/utils'; 
 import checkItemStock from './scraper';
 const server = fastify();
@@ -7,6 +8,14 @@ const server = fastify();
 
 import puppeteer from 'puppeteer';
 import scraperRoutes from './routes/scraperRoutes.js';
+
+// Register CORS
+await server.register(cors, {
+  origin: ['http://localhost:3000'], // Allow requests from Next.js dev server
+  methods: ['GET', 'POST'],
+  credentials: true,
+});
+
 server.get('/ping', async (request, reply) => {
   return 'pong\n'
 })
