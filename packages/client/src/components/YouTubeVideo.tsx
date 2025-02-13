@@ -20,7 +20,7 @@ export default function YouTubeVideo() {
   return (
     <iframe
       className="w-full h-full"
-      src="https://www.youtube.com/embed/oRRLDU4mApc"
+      src="https://www.youtube.com/embed/fF6dKe6vc1A"
       title="StockFinder Demo Video"
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
       allowFullScreen
