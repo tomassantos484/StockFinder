@@ -11,6 +11,17 @@ server.get('/ping', async (request, reply) => {
   return 'pong\n'
 })
 server.register(scraperRoutes)
+
+// Add graceful shutdown
+process.on('SIGINT', async () => {
+  try {
+    await server.close();
+    process.exit(0);
+  } catch (err) {
+    process.exit(1);
+  }
+});
+
 server.listen({ port: 3001, host: 'localhost' }, (err, address) => {
   if (err) {
     console.error(err)
