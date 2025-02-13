@@ -1,6 +1,6 @@
 import { FastifyInstance, FastifyRequest, FastifyReply } from 'fastify';
-import { ScraperRequest, ScraperRequestType, ScraperResponse, ScraperResponseType } from '../schemas/Scraper.js';
-import checkItemStock from '../scraper.js';
+import { ScraperRequest, ScraperRequestType, ScraperResponse, ScraperResponseType } from '../schemas/Scraper';
+import checkItemStock from '../scraper';
 
 async function scraperRoutes(fastify: FastifyInstance, options: any) {
     // Health Check
@@ -34,5 +34,6 @@ async function scraperRoutes(fastify: FastifyInstance, options: any) {
         }
     });
 }
+
 
 export default scraperRoutes;

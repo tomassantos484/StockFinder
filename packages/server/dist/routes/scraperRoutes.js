@@ -1,5 +1,5 @@
-import { ScraperRequest, ScraperResponse } from '../schemas/Scraper.js';
-import checkItemStock from '../scraper.js';
+import { ScraperRequest, ScraperResponse } from '../schemas/Scraper';
+import checkItemStock from '../scraper';
 async function scraperRoutes(fastify, options) {
     // Health Check
     fastify.get('/', async (request, reply) => {
