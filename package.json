@@ -17,5 +17,9 @@
   },
   "peerDependencies": {
     "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "@clerk/nextjs": "^6.11.2",
+    "next": "^15.1.7"
   }
 }
