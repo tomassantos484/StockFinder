@@ -7,7 +7,7 @@ StockFinder is a modern web application designed to solve the **frustration of s
 
 🛠️ **Developed at the [DeveloperWeek 2025 Hackathon!](https://www.developerweek.com/)**  
 
-📢 **Check it out on [DevPost!](https://devpost.com/software/stockfinder) **  
+📢 **Check it out on [DevPost!](https://devpost.com/software/stockfinder)**  
 
 ---
 
