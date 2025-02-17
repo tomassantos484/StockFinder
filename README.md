@@ -16,8 +16,7 @@ StockFinder is a modern web application designed to solve the **frustration of s
 
 ---
 
-## 🖼️ Screenshot  
-![StockFinder Screenshot](<img width="1293" alt="image" src="https://github.com/user-attachments/assets/0bf23d9b-c18e-4adc-ae8e-d64685c78112" />)    
+(<img width="1293" alt="image" src="https://github.com/user-attachments/assets/0bf23d9b-c18e-4adc-ae8e-d64685c78112" />)    
 
 ---
 
