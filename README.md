@@ -95,7 +95,6 @@ StockFinder allows users to:
 ## 🚀 Try it Out!  
 
 🖥️ **Live Demo:** [StockFinder Website](https://developer-week2025-hackathon.vercel.app/) 
-📢 **DevPost Submission:** *[https://devpost.com/software/stockfinder]*  
 
 ---
 
